@@ -91,7 +91,7 @@ def compute_user_vector_models(userseq_json_path, outdir):
 
 if __name__ == "__main__":
     # Input example
-    userseq_json_path = Path("../input_data/input_superspreaders_seqs.jsonl")
+    userseq_json_path = Path("../output/example_output/input_sequences.jsonl")
     outdir = Path("../output/example_output/")
     # Function call
     user_vector_models_path = compute_user_vector_models(userseq_json_path, outdir)

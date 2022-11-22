@@ -18,15 +18,12 @@ from pipeline.compute_size_vs_coordination import compute_size_vs_coordination
 def main(input_filepath, output_directory):
 
 	raw_sequences_path = Path(input_filepath)  # input data
-	input_dir = Path("input_data/")
 	outdir = Path("output") / Path(output_directory)
-	# create directories
-	Path(input_dir).mkdir(parents = True, exist_ok = True)
-	Path(outdir).mkdir(parents = True, exist_ok = True)
+	Path(outdir).mkdir(parents = True, exist_ok = True) # create output directory
 
 	my_print("PARSING INPUT DATA")
-	#user_sequences_json_path = parse_sequences(raw_sequences_path, input_dir)  # output: "input_data/input_superspreaders_seqs.jsonl"
-	user_sequences_json_path = "input_data/input_superspreaders_seqs.jsonl"
+	user_sequences_json_path = parse_sequences(raw_sequences_path, outdir)  # output: "input_data/input_superspreaders_seqs.jsonl"
+	#user_sequences_json_path = "output/example_output/input_superspreaders_seqs.jsonl"
 
 	my_print("COMPUTING USER VECTOR MODELS")
 	user_vector_models_path  = compute_user_vector_models(user_sequences_json_path, outdir)
@@ -63,7 +60,7 @@ def main(input_filepath, output_directory):
 
 
 if __name__ == "__main__":
-	input_filepath = sys.argv[1] if len(sys.argv) >= 2 else Path("input_data/input_superspreaders_raw_seqs.jsonl")
+	input_filepath = sys.argv[1] if len(sys.argv) >= 2 else Path("input_data/example_input_superspreaders_raw_seqs.jsonl")
 	output_directory = sys.argv[2] if len(sys.argv) >=3 else Path("output_superspreaders/")
 	main(input_filepath, output_directory)
 

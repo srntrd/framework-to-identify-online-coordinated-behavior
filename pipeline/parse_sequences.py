@@ -5,7 +5,7 @@ from include.lib import my_print
 from include.user_sequences import parse_raw_sequences
 from pathlib import Path
 
-def parse_sequences(raw_sequences_path, input_dir):
+def parse_sequences(raw_sequences_path, outdir):
     """
     Parse a jsonl file of users and their twitter objects, and returns a jsonl file with parsed and formatted relevant information
 
@@ -16,8 +16,8 @@ def parse_sequences(raw_sequences_path, input_dir):
                                 - "raw_sequences": the list of the user's tweet objs ordered asc (corresponding to the "timestamps" list)
                                Example: { "user_id": 111, "timestamps": [1601596899.0, 1601597248.0], "raw_sequences": [{"id":"tweet1", "timestamp": 1601596899.0,"entities": {...}, "retweeted_status": {"id":"retweet1"}, etc.},{"id":"tweet2", "timestamp":1601597248.0, "entities": {...}, "retweeted_status": {...}, etc.}] }
         - (e.g., "input_data/input_superspreaders_raw_seqs.jsonl")
-    :param input_dir: the path of the directory where the data will be saved:
-        - (e.g., "input_data/")
+    :param outdir: the path of the directory where the data will be saved:
+        - (e.g., "output/example_output")
     :return: the path of jsonl file in which every line is a json user.
                                 Each json contains:
                                 - "user_id"
@@ -39,7 +39,7 @@ def parse_sequences(raw_sequences_path, input_dir):
         - (e.g., "input_data/input_superspreaders_seqs.jsonl")
 
     """
-    output_path = input_dir / Path("input_superspreaders_seqs.jsonl")
+    output_path = outdir / Path("input_sequences.jsonl")
 
     my_print(f"Parsing raw sequences from {raw_sequences_path}...")
 
@@ -54,9 +54,9 @@ def parse_sequences(raw_sequences_path, input_dir):
 
 if __name__ == '__main__':
     # Input example
-    input_dir = Path("../input_data/")
-    raw_sequences_path = Path("../input_data/input_superspreaders_raw_seqs.jsonl")
+    outdir = Path("../output/example_output/")
+    raw_sequences_path = Path("../input_data/example_input_superspreaders_raw_seqs.jsonl")
     # Function call
-    userseq_json_path = parse_sequences(raw_sequences_path, input_dir)
+    userseq_json_path = parse_sequences(raw_sequences_path, outdir)
     # Output example
-    print(userseq_json_path)  # "../input_data/input_superspreaders_seqs.jsonl"
+    print(userseq_json_path)  # "../output/example_output/input_sequences.jsonl"
