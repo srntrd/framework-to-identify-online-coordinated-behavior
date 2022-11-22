@@ -2,3 +2,4 @@
 cb_venv
 __pycache__
 include/__pycache__
+.idea
