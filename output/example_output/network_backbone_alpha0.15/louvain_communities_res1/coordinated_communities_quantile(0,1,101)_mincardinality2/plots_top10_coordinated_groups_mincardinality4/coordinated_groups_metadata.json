@@ -1,0 +1,1 @@
+{"top_communities_by_size": 10, "min_cardinality": 4, "communities": {"0": {"coordinated_group": 0, "size": 8, "colormap": "Blues", "hex_color": "#6aaed6", "top_hashtag": "maga", "label": "group0_maga"}, "1": {"coordinated_group": 1, "size": 4, "colormap": "Oranges", "hex_color": "#fd8c3b", "top_hashtag": "biafraexit", "label": "group1_biafraexit"}}}
