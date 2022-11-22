@@ -23,9 +23,9 @@ When dealing with big data, we suggest to run single stages of the pipeline, as 
 
 The input data must be a jsonl file, where each line is a json corresponding to a user.
 Each json contains:
-- *user_id*
-- *timestamps*: the list of its tweets' timestamps, in ascending order
-- *raw_sequences*: the list of the user's tweet objs, in ascending order such that the i-th "timestamp" is the timestamp of the i-th tweet in "raw_sequences"
+- *user_id*;
+- *timestamps*: the list of its tweets' timestamps, in ascending order;
+- *raw_sequences*: the list of the user's tweet objs, in ascending order such that the i-th "timestamp" is the timestamp of the i-th tweet in "raw_sequences".
 
 Example: ```{"user_id": 111, "timestamps": [1601596899.0, 1601597248.0], "raw_sequences": [{"id":"tweet1", "timestamp": 1601596899.0,"entities": {...}, "retweeted_status": {"id":"retweet1"}, etc.},{"id":"tweet2", "timestamp":1601597248.0, "entities": {...}, "retweeted_status": {...}, etc.}] }```
 
@@ -44,14 +44,14 @@ The output direcrory of the example script `process_pipeline_test.py` is `output
 
 The stages of the pipeline must be run in the following order (as done in `process_pipeline_test.py):
 1. `parse_sequences.py` : Parse a input jsonl file of users and their twitter objects and returns a jsonl file with parsed and formatted relevant information as follows:
-    - *user_id*
-    - *timestamps*: the list of its tweets' timestamps ordered asc
-    - *retweeted_status_ids*: the list of the user's retweet ids ordered asc (corresponding to the *timestamps* list)
-    - *retweeted_status_timestamps*: the list of the user's retweet timestamps ordered asc (corresponding to the *timestamps* list)
-    - *retweeted_status_user_ids*: the list of the user's retweeted user ids (corresponding to the *timestamps* list)
-    - *hashtags*: list of lists, where each element corresponds to the list of hashtags contained in the i-th tweet of the *timestamps* list
-    - *mentions*: list of lists, where each element corresponds to the list of mentions (i.e., mentioned user ids) contained in the i-th tweet of the *timestamps* list
-    - *urls*: list of lists, where each element corresponds to the list of urls contained in the i-th tweet of the *timestamps* list 
+    - *user_id*;
+    - *timestamps*: the list of its tweets' timestamps ordered asc;
+    - *retweeted_status_ids*: the list of the user's retweet ids ordered asc (corresponding to the *timestamps* list);
+    - *retweeted_status_timestamps*: the list of the user's retweet timestamps ordered asc (corresponding to the *timestamps* list);
+    - *retweeted_status_user_ids*: the list of the user's retweeted user ids (corresponding to the *timestamps* list);
+    - *hashtags*: list of lists, where each element corresponds to the list of hashtags contained in the i-th tweet of the *timestamps* list;
+    - *mentions*: list of lists, where each element corresponds to the list of mentions (i.e., mentioned user ids) contained in the i-th tweet of the *timestamps* list;
+    - *urls*: list of lists, where each element corresponds to the list of urls contained in the i-th tweet of the *timestamps* list.
 
     Example: ```{"user_id": 111,
                 "timestamps": [1601596899.0, 1601597248.0],
