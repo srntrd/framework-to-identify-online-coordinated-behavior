@@ -1,8 +1,5 @@
 # Framework to identify online coordinated behavior
 
-Released by the Institute of Informatics and Telematics (IIT) of the
-Italian National Research Council (CNR)
-
 ------
 
 ### Liability disclaimer
